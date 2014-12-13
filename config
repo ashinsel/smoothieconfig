@@ -117,9 +117,9 @@ laser_module_enable                          false            # Whether to activ
 #laser_module_pwm_period                      20              # this sets the pwm frequency as the period in microseconds
 
 # Servo module configuration
-servo_module_enable                           true            # enable my servo module
-servo_module_pin                              2.5             #
-servo_module_deactivation_delay_s             5               # deactivate the servo after this delay in seconds
+servo.zprobe.enable                           true            # Enable Z-Probe servo
+servo.zprobe.output_pin                       2.5             # pin for the servo
+servo.zprobe.deactivation_delay_ms            300             # how many milliseconds to hold the servo
 
 
 # Hotend temperature control configuration

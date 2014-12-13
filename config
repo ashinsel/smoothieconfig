@@ -120,7 +120,9 @@ laser_module_enable                          false            # Whether to activ
 servo.zprobe.enable                           true            # Enable Z-Probe servo
 servo.zprobe.output_pin                       2.5             # pin for the servo
 servo.zprobe.deactivation_delay_ms            300             # how many milliseconds to hold the servo
-
+servo.zprobe.set_angle_command                M280            # GCode used to set angle i.e. M280 S90 sets the servo to 90 degrees
+servo.zprobe.max_angle                        170             # Max angle for this servo
+servo.zprobe.min_angle                        30              # Minimum angle for this servo
 
 # Hotend temperature control configuration
 temperature_control.hotend.enable            true             # Whether to activate this ( "hotend" ) module at all.

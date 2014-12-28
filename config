@@ -118,8 +118,9 @@ laser_module_enable                          false            # Whether to activ
 
 # Servo module configuration
 servo.zprobe.enable                           true            # Enable Z-Probe servo
+#servo.zprobe.output_pin                       1.23            # pin for the servo
 servo.zprobe.output_pin                       2.5             # pin for the servo
-servo.zprobe.deactivation_delay_ms            300             # how many milliseconds to hold the servo
+servo.zprobe.deactivation_delay_ms            1500            # how many milliseconds to hold the servo
 servo.zprobe.set_angle_command                M280            # GCode used to set angle i.e. M280 S90 sets the servo to 90 degrees
 servo.zprobe.max_angle                        170             # Max angle for this servo
 servo.zprobe.min_angle                        30              # Minimum angle for this servo
@@ -160,7 +161,8 @@ temperature_control.hotend.designator        T                #
 #temperature_control.hotend2.max_pwm          64               # max pwm, 64 is a good value if driving a 12v resistor with 24v.
 
 temperature_control.bed.enable               true             #
-temperature_control.bed.thermistor_pin       0.23             #
+temperatureextruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
+e_control.bed.thermistor_pin       0.23             #
 temperature_control.bed.heater_pin           2.7              #
 #temperature_control.bed.thermistor           Honeywell100K    # see http://smoothieware.org/temperaturecontrol#toc5
 temperature_control.bed.beta                4057             # or set the beta value
@@ -215,7 +217,8 @@ alpha_homing_direction                       home_to_min      # or set to home_t
 alpha_min                                    0                # this gets loaded after homing when home_to_min is set
 alpha_max                                    200              # this gets loaded after homing when home_to_max is set
 beta_min_endstop                             1.26^            #
-beta_max_endstop                             1.27^            #
+beta_max_enextruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
+edstop                             1.27^            #
 beta_homing_direction                        home_to_min      #
 beta_min                                     0                #
 beta_max                                     200              #
@@ -225,13 +228,20 @@ gamma_homing_direction                       home_to_min      #
 gamma_min                                    0                #
 gamma_max                                    200              #
 
+gamma_safe_homing_enable                     true
+gamma_safe_homing_min_x                      42.5
+gamma_safe_homing_min_y                      12.7
+safe_homing_pre_home_command                 M280 S70
+safe_homing_post_home_command                M280 S150
+
 # optional order in which axis will home, default is they all home at the same time,
 # if this is set it will force each axis to home one at a time in the specified order
-#homing_order                                 XYZ              # x axis followed by y then z last
+homing_order                                 XYZ              # x axis followed by y then z last
 
 # optional enable limit switches, actions will stop if any enabled limit switch is triggered
 #alpha_limit_enable                          false            # set to true to enable X min and max limit switches
-#beta_limit_enable                           false            # set to true to enable Y min and max limit switches
+#beta_limitextruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
+e_enable                           false            # set to true to enable Y min and max limit switches
 #gamma_limit_enable                          false            # set to true to enable Z min and max limit switches
 
 alpha_fast_homing_rate_mm_s                  50               # feedrates in mm/second
@@ -257,7 +267,8 @@ zprobe.probe_height                          5               # how much above be
 #gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
 
 # associated with zprobe the leveling strategy to use
-#leveling-strategy.three-point-leveling.enable         true        # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
+#leveling-extruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
+estrategy.three-point-leveling.enable         true        # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
 #leveling-strategy.three-point-leveling.point1         100.0,0.0   # the first probe point (x,y) optional may be defined with M557
 #leveling-strategy.three-point-leveling.point2         200.0,200.0 # the second probe point (x,y)
 #leveling-strategy.three-point-leveling.point3         0.0,200.0   # the third probe point (x,y)
@@ -272,7 +283,8 @@ pause_button_enable                          true             #
 # Panel
 panel.enable                                 false             # set to true to enable the panel code
 panel.lcd                                    smoothiepanel     # set type of panel
-panel.encoder_a_pin                          3.25!^            # encoder pin
+panel.encoextruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
+eder_a_pin                          3.25!^            # encoder pin
 panel.encoder_b_pin                          3.26!^            # encoder pin
 
 # Example for reprap discount GLCD
@@ -302,7 +314,8 @@ panel.gamma_jog_feedrate                     200               # z jogging feedr
 panel.hotend_temperature                     185               # temp to set hotend when preheat is selected
 panel.bed_temperature                        60                # temp to set bed when preheat is selected
 
-# Example of a custom menu entry, which will show up in the Custom entry.
+# Exampleextruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
+e of a custom menu entry, which will show up in the Custom entry.
 # NOTE _ gets converted to space in the menu and commands, | is used to separate multiple commands
 custom_menu.power_on.enable                true              #
 custom_menu.power_on.name                  Power_on          #

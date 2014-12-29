@@ -9,9 +9,9 @@ mm_per_line_segment                          5                # Lines can be cut
                                                               # coordinates robots ).
 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
-alpha_steps_per_mm                           80               # Steps per mm for alpha stepper
-beta_steps_per_mm                            80               # Steps per mm for beta stepper
-gamma_steps_per_mm                           1600             # Steps per mm for gamma stepper
+alpha_steps_per_mm                           100              # Steps per mm for alpha stepper
+beta_steps_per_mm                            100              # Steps per mm for beta stepper
+gamma_steps_per_mm                           3024             # Steps per mm for gamma stepper
 
 # Planner module configuration : Look-ahead and acceleration configuration
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOU ARE DOING
@@ -65,7 +65,7 @@ dfu_enable                                   true             # for linux develo
 
 # Extruder module configuration
 extruder.hotend.enable                          true             # Whether to activate the extruder module at all. All configuration is ignored if false
-extruder.hotend.steps_per_mm                    140              # Steps per mm for extruder stepper
+extruder.hotend.steps_per_mm                    1077             # Steps per mm for extruder stepper
 extruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
 extruder.hotend.acceleration                    500              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
 extruder.hotend.max_speed                       50               # mm/s
@@ -210,8 +210,9 @@ gamma_min                                    0                #
 gamma_max                                    200              #
 
 gamma_safe_homing_enable                     true
-gamma_safe_homing_min_x                      42.5
-gamma_safe_homing_min_y                      12.7
+#-45.9,4.9,-3.9
+gamma_safe_homing_min_x                      50
+gamma_safe_homing_min_y                      5
 safe_homing_pre_home_command                 M280 S70
 safe_homing_post_home_command                M280 S150
 
@@ -255,7 +256,7 @@ zprobe.probe_height                          10               # how much above b
 #leveling-strategy.three-point-leveling.point3         0.0,200.0   # the third probe point (x,y)
 #leveling-strategy.three-point-leveling.home_first     true        # home the XY axis before probing
 #leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
-#leveling-strategy.three-point-leveling.probe_offsets  0,0,0       # the probe offsets from nozzle, must be x,y,z, default is no offset
+#leveling-strategy.three-point-leveling.probe_offsets  -45.9,4.9,-3.9       # the probe offsets from nozzle, must be x,y,z, default is no offset
 #leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
 
 # Pause button

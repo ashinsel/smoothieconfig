@@ -52,7 +52,7 @@ gamma_step_pin                               2.2              # Pin for gamma st
 gamma_dir_pin                                0.20             # Pin for gamma stepper direction
 gamma_en_pin                                 0.19             # Pin for gamma enable
 gamma_current                                1.0              # Z stepper motor current
-gamma_max_rate                               300.0            # mm/min
+gamma_max_rate                               100.0            # mm/min
 
 # Serial communications configuration ( baud rate default to 9600 if undefined )
 uart0.baud_rate                              115200           # Baud rate for the default hardware serial port
@@ -206,7 +206,7 @@ beta_max                                     200              #
 gamma_min_endstop                            1.28^            #
 gamma_max_endstop                            1.29^            #
 gamma_homing_direction                       home_to_min      #
-gamma_min                                    0                #
+gamma_min                                    3.8              #
 gamma_max                                    200              #
 
 gamma_safe_homing_enable                     true
@@ -242,21 +242,21 @@ gamma_homing_retract_mm                      1                # "
 # optional Z probe
 zprobe.enable                                true           # set to true to enable a zprobe
 zprobe.probe_pin                             1.28^          # pin probe is attached to if NC remove the !
-zprobe.slow_feedrate                         5               # mm/sec probe feed rate
+zprobe.slow_feedrate                         2               # mm/sec probe feed rate
 #zprobe.debounce_count                       100             # set if noisy
-zprobe.fast_feedrate                         100             # move feedrate mm/sec
+zprobe.fast_feedrate                         4             # move feedrate mm/sec
 zprobe.probe_height                          10               # how much above bed to start probe
 #gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
 
 # associated with zprobe the leveling strategy to use
 #leveling-extruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
-#leveling-strategy.three-point-leveling.enable         true        # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
-#leveling-strategy.three-point-leveling.point1         100.0,0.0   # the first probe point (x,y) optional may be defined with M557
-#leveling-strategy.three-point-leveling.point2         200.0,200.0 # the second probe point (x,y)
-#leveling-strategy.three-point-leveling.point3         0.0,200.0   # the third probe point (x,y)
-#leveling-strategy.three-point-leveling.home_first     true        # home the XY axis before probing
-#leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
-#leveling-strategy.three-point-leveling.probe_offsets  -45.9,4.9,-3.9       # the probe offsets from nozzle, must be x,y,z, default is no offset
+leveling-strategy.three-point-leveling.enable         true        # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
+leveling-strategy.three-point-leveling.point1         100.0,0.0   # the first probe point (x,y) optional may be defined with M557
+leveling-strategy.three-point-leveling.point2         200.0,200.0 # the second probe point (x,y)
+leveling-strategy.three-point-leveling.point3         0.0,200.0   # the third probe point (x,y)
+leveling-strategy.three-point-leveling.home_first     true        # home the XY axis before probing
+leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
+leveling-strategy.three-point-leveling.probe_offsets  -45.9,4.9,-3.9       # the probe offsets from nozzle, must be x,y,z, default is no offset
 #leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
 
 # Pause button

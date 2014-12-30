@@ -51,7 +51,7 @@ beta_max_rate                                30000.0          # mm/min
 gamma_step_pin                               2.2              # Pin for gamma stepper step signal
 gamma_dir_pin                                0.20             # Pin for gamma stepper direction
 gamma_en_pin                                 0.19             # Pin for gamma enable
-gamma_current                                1.0              # Z stepper motor current
+gamma_current                                1.2              # Z stepper motor current
 gamma_max_rate                               100.0            # mm/min
 
 # Serial communications configuration ( baud rate default to 9600 if undefined )

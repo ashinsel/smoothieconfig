@@ -122,7 +122,7 @@ servo.zprobe.enable                           true            # Enable Z-Probe s
 servo.zprobe.output_pin                       2.5             # pin for the servo
 servo.zprobe.deactivation_delay_ms            1500            # how many milliseconds to hold the servo
 servo.zprobe.set_angle_command                M280            # GCode used to set angle i.e. M280 S90 sets the servo to 90 degrees
-servo.zprobe.max_angle                        170             # Max angle for this servo
+servo.zprobe.max_angle                        160             # Max angle for this servo
 servo.zprobe.min_angle                        30              # Minimum angle for this servo
 
 # Hotend temperature control configuration
@@ -213,8 +213,9 @@ gamma_safe_homing_enable                     true
 #-45.9,4.9,-3.9
 gamma_safe_homing_min_x                      50
 gamma_safe_homing_min_y                      5
-safe_homing_pre_home_command                 M280 S70
-safe_homing_post_home_command                M280 S150
+gamma_safe_homing_min_z                      5
+safe_homing_pre_home_command                 M280_S75
+safe_homing_post_home_command                M280_S150
 
 # optional order in which axis will home, default is they all home at the same time,
 # if this is set it will force each axis to home one at a time in the specified order
@@ -247,6 +248,9 @@ zprobe.slow_feedrate                         2               # mm/sec probe feed
 zprobe.fast_feedrate                         4             # move feedrate mm/sec
 zprobe.probe_height                          10               # how much above bed to start probe
 #gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
+zprobe.retractable                           true
+zprobe.extend_command                        M280_S75
+zprobe.retract_command                       M280_S150
 
 # associated with zprobe the leveling strategy to use
 #leveling-extruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves

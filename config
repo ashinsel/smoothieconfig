@@ -261,6 +261,7 @@ leveling-strategy.three-point-leveling.home_first     true        # home the XY 
 leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
 leveling-strategy.three-point-leveling.probe_offsets  -45.9,4.9,-3.9       # the probe offsets from nozzle, must be x,y,z, default is no offset
 leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
+leveling-strategy.three-point-leveling.feedrate                  600
 
 # Pause button
 pause_button_enable                          true             #

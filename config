@@ -68,7 +68,7 @@ extruder.hotend.enable                          true             # Whether to ac
 extruder.hotend.steps_per_mm                    1077             # Steps per mm for extruder stepper
 extruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
 extruder.hotend.acceleration                    500              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.hotend.max_speed                       50               # mm/s
+extruder.hotend.max_speed                       150               # mm/s
 
 extruder.hotend.step_pin                        2.3              # Pin for extruder step signal
 extruder.hotend.dir_pin                         0.22             # Pin for extruder dir signal
@@ -120,7 +120,7 @@ laser_module_enable                          false            # Whether to activ
 servo.zprobe.enable                           true            # Enable Z-Probe servo
 #servo.zprobe.output_pin                       1.23            # pin for the servo
 servo.zprobe.output_pin                       2.5             # pin for the servo
-servo.zprobe.deactivation_delay_ms            1500            # how many milliseconds to hold the servo
+servo.zprobe.deactivation_delay_ms            1000            # how many milliseconds to hold the servo
 servo.zprobe.set_angle_command                M280            # GCode used to set angle i.e. M280 S90 sets the servo to 90 degrees
 servo.zprobe.max_angle                        160             # Max angle for this servo
 servo.zprobe.min_angle                        30              # Minimum angle for this servo
@@ -223,8 +223,7 @@ homing_order                                 XYZ              # x axis followed 
 
 # optional enable limit switches, actions will stop if any enabled limit switch is triggered
 #alpha_limit_enable                          false            # set to true to enable X min and max limit switches
-#beta_limitextruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
-e_enable                           false            # set to true to enable Y min and max limit switches
+#beta_limit_enable                           false            # set to true to enable Y min and max limit switches
 #gamma_limit_enable                          false            # set to true to enable Z min and max limit switches
 
 alpha_fast_homing_rate_mm_s                  50               # feedrates in mm/second
@@ -246,14 +245,14 @@ zprobe.probe_pin                             1.28^          # pin probe is attac
 zprobe.slow_feedrate                         2               # mm/sec probe feed rate
 #zprobe.debounce_count                       100             # set if noisy
 zprobe.fast_feedrate                         4             # move feedrate mm/sec
-zprobe.probe_height                          10               # how much above bed to start probe
+zprobe.probe_height                          5               # how much above bed to start probe
 #gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
 zprobe.retractable                           true
 zprobe.extend_command                        M280_S75
 zprobe.retract_command                       M280_S150
 
 # associated with zprobe the leveling strategy to use
-#leveling-extruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
+leveling-extruder.hotend.default_feed_rate               600              # Default rate ( mm/minute ) for moves where only the extruder moves
 leveling-strategy.three-point-leveling.enable         true        # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
 leveling-strategy.three-point-leveling.point1         60.0,0.0   # the first probe point (x,y) optional may be defined with M557
 leveling-strategy.three-point-leveling.point2         120.0,120.0 # the second probe point (x,y)
@@ -261,7 +260,7 @@ leveling-strategy.three-point-leveling.point3         0.0,120.0   # the third pr
 leveling-strategy.three-point-leveling.home_first     true        # home the XY axis before probing
 leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
 leveling-strategy.three-point-leveling.probe_offsets  -45.9,4.9,-3.9       # the probe offsets from nozzle, must be x,y,z, default is no offset
-#leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
+leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
 
 # Pause button
 pause_button_enable                          true             #

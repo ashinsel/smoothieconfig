@@ -244,7 +244,7 @@ zprobe.enable                                true           # set to true to ena
 zprobe.probe_pin                             1.28^          # pin probe is attached to if NC remove the !
 zprobe.slow_feedrate                         2               # mm/sec probe feed rate
 #zprobe.debounce_count                       100             # set if noisy
-zprobe.fast_feedrate                         4             # move feedrate mm/sec
+zprobe.fast_feedrate                         200             # move feedrate mm/sec
 zprobe.probe_height                          5               # how much above bed to start probe
 #gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
 zprobe.retractable                           true
@@ -259,9 +259,9 @@ leveling-strategy.three-point-leveling.point2         120.0,120.0 # the second p
 leveling-strategy.three-point-leveling.point3         0.0,120.0   # the third probe point (x,y)
 leveling-strategy.three-point-leveling.home_first     true        # home the XY axis before probing
 leveling-strategy.three-point-leveling.tolerance      0.03        # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm
-leveling-strategy.three-point-leveling.probe_offsets  -45.9,4.9,-3.9       # the probe offsets from nozzle, must be x,y,z, default is no offset
+leveling-strategy.three-point-leveling.probe_offsets  -45.9,4.9,3.9       # the probe offsets from nozzle, must be x,y,z, default is no offset
 leveling-strategy.three-point-leveling.save_plane     false       # set to true to allow the bed plane to be saved with M500 default is false
-leveling-strategy.three-point-leveling.feedrate                  600
+leveling-strategy.three-point-leveling.feedrate                  2
 
 # Pause button
 pause_button_enable                          true             #

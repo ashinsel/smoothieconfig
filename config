@@ -129,7 +129,7 @@ servo.zprobe.min_angle                        30              # Minimum angle fo
 temperature_control.hotend.enable            true             # Whether to activate this ( "hotend" ) module at all.
                                                               # All configuration is ignored if false.
 temperature_control.hotend.thermistor_pin    0.24             # Pin for the thermistor to read
-temperature_control.hotend.heater_pin        2.4              # Pin that controls the heater, set to nc if a readonly thermistor is being defined
+temperature_control.hotend.heater_pin        2.7              # Pin that controls the heater, set to nc if a readonly thermistor is being defined
 #temperature_control.hotend.thermistor        EPCOS100K        # see http://smoothieware.org/temperaturecontrol#toc5
 temperature_control.hotend.beta              4057             # or set the beta value
 temperature_control.hotend.set_m_code        104              #
